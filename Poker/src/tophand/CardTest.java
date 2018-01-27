@@ -12,7 +12,7 @@ public class CardTest {
 		DeckOfCards myDeckOfCards = new DeckOfCards();
 
 		
-		for (int j=0;j<1000000;j++) {		
+		for (int j=0;j<1000;j++) {		
 		
 			for (int i = 0; i < 10; i++) {
 				myDeckOfCards.shuffle();
@@ -36,59 +36,59 @@ public class CardTest {
 			do {
 				result =myHand.getRflush();
 				if (result) {
-//					System.out.println("High Hand is: Royal Flush");
+					System.out.println("High Hand is: Royal Flush");
 					handCounts[0]++;
 					break;
 				}
 				result=myHand.getSflush();
 				if (result) {
-//					System.out.println("High Hand is: Straight Flush");
+					System.out.println("High Hand is: Straight Flush");
 					handCounts[1]++;
 					break;
 				}
 				result=myHand.getQuads();
 				if (result) {
-//					System.out.println("High Hand is: Quads");
+					System.out.println("High Hand is: Quads");
 					handCounts[2]++;
 					break;
 				}
 				result=myHand.getFhouse();
 				if (result) {
-//					System.out.println("High Hand is: Full House");
+					System.out.println("High Hand is: Full House");
 					handCounts[3]++;
 					break;
 				}
 				result=myHand.getFlush();
 				if (result) {
-//					System.out.println("High Hand is: Flush");
+					System.out.println("High Hand is: Flush");
 					handCounts[4]++;
 					break;
 				}
 				result=myHand.getStraight();
 				if (result) {
-//					System.out.println("High hand is: Straight");
+					System.out.println("High hand is: Straight");
 					handCounts[5]++;
 					break;
 				}
 				result=myHand.getTrips();
 				if (result) {
-//					System.out.println("High Hand is: Trips");
+					System.out.println("High Hand is: Trips");
 					handCounts[6]++;
 					break;
 				}
 				result=myHand.getTwoPair();
 				if (result) {
-//					System.out.println("High Hand is: Two Pair");
+					System.out.println("High Hand is: Two Pair");
 					handCounts[7]++;
 					break;
 				}
 				result=myHand.getPair();
 				if (result) {
-//					System.out.println("High Hand is: Pair");
+					System.out.println("High Hand is: Pair");
 					handCounts[8]++;
 					break;
 				}
-//				System.out.println("High Hand is: High Card");
+				System.out.println("High Hand is: High Card");
 				handCounts[9]++;
 			}
 			while (result);
