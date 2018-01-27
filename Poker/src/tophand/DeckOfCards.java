@@ -2,86 +2,66 @@ package tophand;
 
 import java.security.SecureRandom;
 
-public class DeckOfCards
-{
-    private Card[] deck; // array of Card objects
-    private int currentCard; // index of next Card to be dealt (0-51)
-    private static final int NUMBER_OF_CARDS = 52; // constant # of Cards
-    // random number generator
-    private static final SecureRandom randomNumbers = new SecureRandom();
+public class DeckOfCards {
+	private Card[] deck; // array of Card objects
+	private int currentCard; // index of next Card to be dealt (0-51)
+	private static final int NUMBER_OF_CARDS = 52; // constant # of Cards
+//	private static final int CARDS_IN_HAND = 5;
+	// random number generator
+	private static final SecureRandom randomNumbers = new SecureRandom();
 
-    private Card[] myHand = new Card[5];
+//	private String[] hand = new String[5];
 
-    // constructor fills deck of Cards
-    public DeckOfCards()
-    {
-        String[] faces =
-        { "A", "2", "3", "4", "5", "6", "7", "8", "9", "Ten", "Jack", "Queen",
-                "King" };
-        String[] suits =
-        { "Hearts", "Diamonds", "Clubs", "Spades" };
+	// constructor fills deck of Cards
+	public DeckOfCards() {
 
-        deck = new Card[NUMBER_OF_CARDS]; // create array of Card objects
-        currentCard = 0; // first Card dealt will be deck[0]
+		currentCard = 0; // first Card dealt will be deck[0]
 
-        // populate deck with Card objects
-        for (int count = 0; count < deck.length; count++)
-            deck[count] = new Card(faces[count % 13], suits[count / 13]);
-    }
+		String[] faces = {"A","2", "3", "4","5", "6",
+				"7", "8", "9", "T", "J", "Q", "K"};
+		String[] suits = {"H", "D", "C", "S"};
+		deck = new Card[NUMBER_OF_CARDS]; // create array of Card objects
 
-    // shuffle deck of Cards with one-pass algorithm
-    public void shuffle()
-    {
-        // next call to method dealCard should start at deck[0] again
-        currentCard = 0;
+		// populate deck with Card objects
+		for (int count = 0; count < deck.length; count++)
+			deck[count] = new Card(faces[count % 13], suits[count / 13]);
 
-        // for each Card, pick another random Card (0-51) and swap them
-        for (int first = 0; first < deck.length; first++)
-        {
-            // select a random number between 0 and 51
-            int second = randomNumbers.nextInt(NUMBER_OF_CARDS);
+	}
+	// shuffle deck of Cards with one-pass algorithm
+public void shuffle() {
+		// next call to method dealCard should start at deck[0] again
+		currentCard = 0;
 
-            // swap current Card with randomly selected Card
-            Card temp = deck[first];
-            deck[first] = deck[second];
-            deck[second] = temp;
-        }
-    }
+		// for each Card, pick another random Card (0-51) and swap them
 
-    // deal one Card
-    public Card dealCard()
-    {
-        // determine whether Cards remain to be dealt
-        if (currentCard < deck.length)
-            return deck[currentCard++]; // return current Card in array
-        else
-            return null; // return null to indicate that all Cards were dealt
-    }
+		for (int first = 0; first < deck.length; first++) {
+			// select a random number between 0 and 51
+			int second = randomNumbers.nextInt(NUMBER_OF_CARDS);
 
-    public String[] dealHand()
-    {
-        String[] hand = new String[5];
-        for (int i = 0; i < 5; i++)
-        {
-            hand[i] = deck[i].toString();
-        }
-        return hand;
-    }
-    public Boolean checkRFlush(String[] myHand)
-    {
-        boolean answer = false;
-        for (int i = 0; i < myHand.length - 1; i++)
-        {
-            if (myHand[i].substring(1).equals(myHand[i + 1].substring(1)))
-            {
-                answer = true;
-            }
-            else
-            {
-                answer = false;
-            }
-        }
-        
-       return answer;
-    }
+			// swap current Card with randomly selected Card
+			Card temp = deck[first];
+			deck[first] = deck[second];
+			deck[second] = temp;
+
+		}
+	}
+
+	// deal one Card
+	public Card dealCard() {
+
+		// determine whether Cards remain to be dealt
+		if (currentCard < deck.length)
+			return deck[currentCard++];
+		else
+			return null; // return null to indicate that all Cards were dealt
+
+	}
+
+//	public String[] dealHand() {
+//		for (int i = 0; i < CARDS_IN_HAND; i++) {
+//			hand[i] = deck[i].toString();
+//		}
+//		return hand;
+//	}
+
 } // end class DeckOfCards
