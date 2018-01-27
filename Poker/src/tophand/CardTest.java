@@ -1,34 +1,66 @@
 package tophand;
 
-public class CardTest
-{
-   // execute application
-   public static void main(String[] args)
-   {
-      DeckOfCards myDeckOfCards = new DeckOfCards();
-//      myDeckOfCards.shuffle(); // place Cards in random order
-      
-      // print all 52 Cards in the order in which they are dealt
-      for (int i = 1; i <= 5; i++)
-      {
-         // deal and display a Card
-         
-//         System.out.printf("%-19s", myDeckOfCards.dealCard());
+public class CardTest {
 
-                 if (i % 5 == 0) // output a newline after every fourth card
-                    System.out.println();
-      } 
-      String [] myHand = myDeckOfCards.dealHand();
-      for (int i = 0; i < myHand.length; i++)
-    {
-          System.out.printf("%-19s", myHand[i]);
-    }
-      System.out.println("Royal Flush:"+myDeckOfCards.checkRFlush(myHand));
-      
-      
-   } 
+	public static void main(String[] args) {
 
-   
+		String faces ="";
+		String suits="";
+		Boolean result=false;
+//		for (int i = 0; i < 10; i++) {
+//			myDeckOfCards.shuffle();
+//		}
+		
+		DeckOfCards myDeckOfCards = new DeckOfCards();
+		Hand myHand = new Hand(myDeckOfCards);
+		suits = myHand.getSuits();
+		faces=myHand.getFaces();
+		System.out.println();
+		System.out.println("Suits:"+suits+ " Faces:"+faces);
+		faces="2Q2KK";
+		myHand.isFlush(suits);
+		myHand.isofaKind(faces);
+//		System.out.println("Royal Flush:"+ myHand.getRflush());
+//		System.out.println("Straight Flush:"+ myHand.getSflush());		
+//		System.out.println("Quads:" + myHand.getQuads());
+//		System.out.println("Full House:"+ myHand.getFhouse());
+//		System.out.println("Flush:"+ myHand.getFlush());
+//		System.out.println("Straight:"+ myHand.getStraight());
+//		System.out.println("Trips:" + myHand.getTrips());
+//		System.out.println("Two Pair:"+myHand.getTwoPair());
+//		System.out.println("Pair:" + myHand.getPair());
+//		System.out.println("High:" + myHand.getHigh());
 
-} // end class DeckOfCardsTest
+		do {
+			result =myHand.getRflush();
+			if (result) {
+				System.out.println("High Hand is: Royal Flush:");
+			}
+			if (result) {
+				System.out.println("High Hand is: Straight Flush:");
+			}
+			result=myHand.getQuads();
+			if (result) {
+				System.out.println("High Hand is: Quads:");
+			}
+			result=myHand.getTrips();
+			if (result) {
+				System.out.println("High Hand is: Trips:");
+			}
+			result=myHand.getTwoPair();
+			if (result) {
+				System.out.println("High Hand is: Two Pair:");
+			}
+			result=myHand.getPair();
+			if (result) {
+				System.out.println("High Hand is: Pair:");
+			}
+		} while (result=false);
+		
+//		System.out.println(myHand.isPair(faces));
+//		System.out.println(myHand.isTrips(faces));
+//		System.out.println(myHand.isQuads(faces));
+		
+	}
 
+}
