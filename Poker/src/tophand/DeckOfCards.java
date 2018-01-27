@@ -27,7 +27,7 @@ public class DeckOfCards {
 			deck[count] = new Card(faces[count % 13], suits[count / 13]);
 
 	}
-	// shuffle deck of Cards with one-pass algorithm
+
 public void shuffle() {
 		// next call to method dealCard should start at deck[0] again
 		currentCard = 0;
