@@ -9,8 +9,8 @@ public class CardTest {
 		Boolean result = false;
 		int[] handCounts = new int[10];
 
-		for (int j = 0; j < 1000000; j++) {
-			System.out.println(j);
+		for (int j = 0; j < 100000000; j++) {
+			System.out.println(j+1);
 			DeckOfCards myDeckOfCards = new DeckOfCards();
 			for (int i = 0; i < 10; i++) {
 				myDeckOfCards.shuffle();
