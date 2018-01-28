@@ -17,7 +17,6 @@ public class Hand {
 	private boolean pair=false;
 	private boolean high=false;
 
-	
 	private Card[] hand = new Card[5]; // array of Card objects
 
 	public String faces = "";
@@ -51,7 +50,7 @@ public class Hand {
 
 	public void isRFlush(String faces, String suits) {
 		isFlush(suits);
-		if (faces.contains("TJQKA") && getFlush()) {
+		if (faces.equals("TJQKA") && getFlush()) {
 			setRflush(true);
 		}
 	}
