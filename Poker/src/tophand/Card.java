@@ -1,6 +1,6 @@
 package tophand;
-
 //Card class represents a playing card.
+//modified from work
 public class Card {
 	private final String face; // face of card ("Ace", "Deuce", ...)
 	private final String suit; // suit of card ("Hearts", "Diamonds", ...)
@@ -9,12 +9,10 @@ public class Card {
 	public Card(String cardFace, String cardSuit) {
 		this.face = cardFace; // initialize face of card
 		this.suit = cardSuit; // initialize suit of card
-		
 	}
-	
+
 	// return String representation of Card
-	public String toString()
-	{
-	return face + suit;
+	public String toString() {
+		return face + suit;
 	}
 }
