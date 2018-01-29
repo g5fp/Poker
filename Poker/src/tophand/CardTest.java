@@ -10,7 +10,7 @@ public class CardTest {
 		int[] handCounts = new int[10];
 
 		// setting the number of hands dealt
-		for (int j = 0; j < 1; j++) {
+		for (int j = 0; j < 1000000; j++) {
 			System.out.println("Hands Dealt:" + (j+1));
 			// create a deck of cards object
 			DeckOfCards myDeckOfCards = new DeckOfCards();
