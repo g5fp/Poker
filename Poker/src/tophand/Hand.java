@@ -34,6 +34,7 @@ public class Hand {
 		}
 	}
 
+	// parse the hand object to get just the card suits and store in the variable suits
 	public String getSuits() {
 		for (int i = 0; i < hand.length; i++) {
 			suits = suits + hand[i].toString().substring(1, 2);
@@ -41,6 +42,7 @@ public class Hand {
 		return suits;
 	}
 
+	// parse the hand object to get just the card faces and store in the variable faces
 	public String getFaces() {
 		for (int i = 0; i < hand.length; i++) {
 			faces = faces + hand[i].toString().substring(0, 1);
@@ -48,6 +50,7 @@ public class Hand {
 		return faces;
 	}
 
+	// check for Royal Flush
 	public void isRFlush(String faces, String suits) {
 		isFlush(suits);
 		if (faces.equals("TJQKA") && getFlush()) {
@@ -55,6 +58,7 @@ public class Hand {
 		}
 	}
 
+	//check for Straight Flush
 	public void isSFlush(String faces, String suits) {
 		isStraight(faces);
 		isFlush(suits);
@@ -63,6 +67,7 @@ public class Hand {
 		}
 	}
 	
+	// check for regular Straight
 	public void isStraight(String faces) {
 
 		if (faces.contains("A2345")) {
@@ -97,6 +102,7 @@ public class Hand {
 		}
 	}
 	
+	// check how many card are of the same kind
 	public void isofaKind(String cards) {
 
 		int count[] = new int[13];
@@ -142,13 +148,17 @@ public class Hand {
 		}
 	}
 
+	// sort the face values using Ace as a low card
 	public String sortAhigh(String faces) {
+
+		// since I can't sort number and letters together, i must change the face cards to regular letters.
 		faces = faces.replaceAll("T", "B");
 		faces = faces.replaceAll("J", "C");
 		faces = faces.replaceAll("Q", "D");
 		faces = faces.replaceAll("K", "E");
 		faces = faces.replaceAll("A", "F");
 
+		// convert to char array, sort and then store sorted cards in variable sortedfaceshigh
 		char[] myFaces = new char[5];
 		myFaces = faces.toCharArray();
 		Arrays.sort(myFaces);
@@ -157,17 +167,17 @@ public class Hand {
 			sortedfaceshigh = new String(myFaces);
 		}
 
-		
+		// after sorting is complete, switch the letters back to their origianl face values
 		sortedfaceshigh = sortedfaceshigh.replaceAll("B", "T");
 		sortedfaceshigh = sortedfaceshigh.replaceAll("C", "J");
 		sortedfaceshigh = sortedfaceshigh.replaceAll("D", "Q");
 		sortedfaceshigh = sortedfaceshigh.replaceAll("E", "K");
 		sortedfaceshigh = sortedfaceshigh.replaceAll("F", "A");
-//		System.out.println("myfaces="+sortedfaceshigh);
-		faces=sortedfaceshigh;
+
 		return 	sortedfaceshigh;	
 	}
 	
+	// identical except sorting with Ace high
 	public String sortAlow(String faces) {
 		faces = faces.replaceAll("A", "1");
 		faces = faces.replaceAll("T", "B");
@@ -184,16 +194,16 @@ public class Hand {
 			sortedfaceslow = new String(myFaces);
 		}
 
-		
 		sortedfaceslow = sortedfaceslow.replaceAll("B", "T");
 		sortedfaceslow = sortedfaceslow.replaceAll("C", "J");
 		sortedfaceslow = sortedfaceslow.replaceAll("D", "Q");
 		sortedfaceslow = sortedfaceslow.replaceAll("E", "K");
 		sortedfaceslow = sortedfaceslow.replaceAll("1", "A");
-//		System.out.println("myfaces="+sortedfaceslow);
+
 		return 	sortedfaceslow;	
 	}
 	
+	// getters & setters for each hand rank
 	public boolean getRflush() {
 		return rflush;
 	}
