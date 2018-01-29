@@ -9,8 +9,9 @@ public class CardTest {
 		Boolean result = false;
 		int[] handCounts = new int[10];
 
-		for (int j = 0; j < 100000000; j++) {
-			System.out.println(j+1);
+		// setting the number of hands dealt
+		for (int j = 0; j < 1; j++) {
+			System.out.println("Hands Dealt:" + (j+1));
 			DeckOfCards myDeckOfCards = new DeckOfCards();
 			for (int i = 0; i < 10; i++) {
 				myDeckOfCards.shuffle();
@@ -19,16 +20,20 @@ public class CardTest {
 
 			suits = myHand.getSuits();
 			faces = myHand.getFaces();
-//			faces = "65342";
-//			suits = "HHHHH";
+			// uncomment the two line below if you want to test a particular hand
+			// also set the loop to only deal 1 hand.
+//			faces = "TJQKA";
+//			suits = "SSSSS";
+			
+			//sort the card high to low and low to high
 			String sortedCardsHigh = myHand.sortAhigh(faces);
 			String sortedCardsLow = myHand.sortAlow(faces);
-
+			
+			//check hand rankings
 			myHand.isRFlush(sortedCardsHigh, suits);
 			myHand.isSFlush(sortedCardsHigh, suits);
-			myHand.isFlush(suits);
 			myHand.isofaKind(faces);
-
+			myHand.isFlush(suits);
 			myHand.isStraight(sortedCardsLow);
 			myHand.isStraight(sortedCardsHigh);
 
@@ -96,13 +101,14 @@ public class CardTest {
 
 			} while (result);
 
+			// printing the hand.  Combining the suits and faces back together
 			for (int i = 0; i < 5; i++) {
 				System.out.print(sortedCardsHigh.substring(i, i + 1)
 						+ suits.substring(i, i + 1) + " ");
 			}
 			System.out.println();
-
 		}
+		
 		System.out.println("Hand Counts:");
 		System.out.println("Royal Flush:" + handCounts[0]);
 		System.out.println("Straight Flush:" + handCounts[1]);
