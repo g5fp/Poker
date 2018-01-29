@@ -6,7 +6,7 @@ public class DeckOfCards {
 	private Card[] deck; // array of Card objects
 	private int currentCard; // index of next Card to be dealt (0-51)
 	private static final int NUMBER_OF_CARDS = 52; // constant # of Cards
-//	private static final int CARDS_IN_HAND = 5;
+
 	// random number generator
 	private static final SecureRandom randomNumbers = new SecureRandom();
 
@@ -27,7 +27,7 @@ public class DeckOfCards {
 			deck[count] = new Card(faces[count % 13], suits[count / 13]);
 
 	}
-
+	// shuffle deck of Cards with one-pass algorithm
 public void shuffle() {
 		// next call to method dealCard should start at deck[0] again
 		currentCard = 0;
