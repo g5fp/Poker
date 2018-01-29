@@ -1,5 +1,5 @@
 package tophand;
-
+//modified from work
 public class CardTest {
 
 	public static void main(String[] args) {
@@ -12,10 +12,14 @@ public class CardTest {
 		// setting the number of hands dealt
 		for (int j = 0; j < 1; j++) {
 			System.out.println("Hands Dealt:" + (j+1));
+			// create a deck of cards object
 			DeckOfCards myDeckOfCards = new DeckOfCards();
+			
+			//shuffle the cards 10 times
 			for (int i = 0; i < 10; i++) {
 				myDeckOfCards.shuffle();
 			}
+			// create a hand of cards from myDeckOfCards object
 			Hand myHand = new Hand(myDeckOfCards);
 
 			suits = myHand.getSuits();
