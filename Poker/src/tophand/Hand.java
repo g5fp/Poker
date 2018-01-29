@@ -1,5 +1,5 @@
 package tophand;
-
+// modified from work
 import java.util.Arrays;
 
 import org.apache.commons.lang3.StringUtils;;
@@ -17,7 +17,8 @@ public class Hand {
 	private boolean pair=false;
 	private boolean high=false;
 
-	private Card[] hand = new Card[5]; // array of Card objects
+	// array of Card objects
+	private Card[] hand = new Card[5]; 
 
 	public String faces = "";
 	private String suits = "";
@@ -27,7 +28,6 @@ public class Hand {
 
 	// Hand constructor (uses deck object)
 	public Hand(DeckOfCards deck) {
-
 		// deal the hand, store in hand object
 		for (int i = 0; i < hand.length; i++) {
 			hand[i] = deck.dealCard();
